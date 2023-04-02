@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController ; 
 use App\Http\Controllers\appealsController ;
 use App\Http\Controllers\reqController ; 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,8 +52,17 @@ route::view("reciever",'reciever');
 
 route::view("appeal",'appeal');
 Route::post('appeal',[appealsController::class,'addpost']) ;
+Route::get('appeal',[appealsController::class,'viewform']) ;
+Route::get('appeal',[appealsController::class,'index']) ;
+//appeal edit and delete
+Route::get('clickedit/{id}',[appealsController::class,'editfunction']) ;
+Route::post('/update/{id}',[appealsController::class,'updatefunc']) ;
+Route::get('clickdelete/{id}',[appealsController::class,'deletefunction']) ;
+
+
 
 route::view("request",'request');
 Route::post('request',[reqController::class,'addreq']) ;
+
 
 route::view("settings",'settings');
