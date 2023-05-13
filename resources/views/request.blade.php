@@ -34,6 +34,12 @@
 <link href="{{URL::to('/')}}/import/assets/js/main.js">
 <link href="{{URL::to('/')}}/import/assets/js/virtual-select.min.js">
 
+<!--css file increment input -->
+<link href="{{URL::to('/')}}/import/assets/css/increment.css" rel="stylesheet">
+
+
+
+
 </head>
 
 <body>
@@ -85,22 +91,21 @@
 
   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
     <li><a class="dropdown-item active" href="#">profile</a></li>
-    <li><a class="dropdown-item" href="#">settings</a></li>
+    <li><a class="dropdown-item" href="settings">settings</a></li>
     <li><a class="dropdown-item" href="#">history</a></li>
     <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">logout</a></li>
+    <li><a class="dropdown-item" href="/logout">logout</a></li>
   
 </div>
 </header>
-
 <div class="mt-5 p-5">  
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#appealModal">post an appeal</button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#requestModal">send request</button>
 </div>
 
  <!--starting the model-->
 
 <!-- Feedback Modal-->
-<div class="modal fade" id="appealModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+<div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-gradient-primary-to-secondary p-4">
@@ -140,16 +145,16 @@
 
                             <!-- blood input-->
                             <div class="input-group mb-3">
-  <span class="input-group-text" name="input1">blood/number of bags</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <span class="input-group-text" >blood/number of bags</span>
+  <input type="text" name="input1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 <div class="input-group mb-3">
-  <span class="input-group-text" name="input2">blood/number of bags</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <span class="input-group-text" >blood/number of bags</span>
+  <input type="text" name="input2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 <div class="input-group mb-3">
-  <span class="input-group-text" name="input3">blood/number of bags</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <span class="input-group-text" >blood/number of bags</span>
+  <input type="text" name="input3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 <br>
 <!-- end blood input-->
@@ -176,3 +181,32 @@
 
 
 
+        <table class="table">
+  <thead class="table-dark">
+  <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">email</th>
+      <th scope="col">phone</th>
+      <th scope="col">blood 1</th>
+      <th scope="col">blood 2</th>
+      <th scope="col">blood 3</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($demandes as $r)
+  <tr>
+      <th scope="r">{{$r->id}}</th>
+      <td>{{$r->name}}</td>
+      <td>{{$r->email}}</td>
+      <td>{{$r->phone}}</td>
+      <td>{{$r->blood1}}</td>
+      <td>{{$r->blood2}}</td>
+      <td> {{$r->blood3}}</td>
+      <td>status</td>
+      
+    </tr>
+    @endforeach
+  </tbody>
+</table>

@@ -34,6 +34,12 @@
 <link href="{{URL::to('/')}}/import/assets/js/main.js">
 <link href="{{URL::to('/')}}/import/assets/js/virtual-select.min.js">
 
+<!--css file increment input -->
+<link href="{{URL::to('/')}}/import/assets/css/increment.css" rel="stylesheet">
+
+
+
+
 </head>
 
 <body>
@@ -143,14 +149,14 @@
 <div>
   <label>choose blood</label>
 <select id="multipleSelect" multiple name="bloodselect" placeholder="O+" data-search="false" data-silent-initial-value-set="true">
-  <option value="1" Selected>O+</option>
-  <option value="2">O-</option>
-  <option value="2">A+</option>
-  <option value="2">A-</option>
-  <option value="2">B+</option>
-  <option value="2">B-</option>
-  <option value="2">AB+</option>
-  <option value="2">AB-</option>
+  <option value="O+" Selected>O+</option>
+  <option value="O-">O-</option>
+  <option value="A+">A+</option>
+  <option value="A-">A-</option>
+  <option value="B+">B+</option>
+  <option value="B-">B-</option>
+  <option value="AB+">AB+</option>
+  <option value="AB-">AB-</option>
   
 </select>
 </div><br>
@@ -159,15 +165,30 @@
 VirtualSelect.init({ 
   ele: '#multipleSelect' 
 });</script>
+ <!--quantity -->
+ <div class="row">
+                <div class="col-md-6 mb-4">
+ <p class="text-dark">number of bags</p>
+</div>
+<div class="col-md-6 mb-4">
 
-                            <!-- Message input-->
+         <input type="number" step="1" max="10" min="1" value="1" name="message" class="quantity-field border-0 text-center w-25">
+       
+</div>
+</div>
+   
+
+ <!--end quantity try-->
+
+                           <!-- Message input-->
+  <!--                         
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" name="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
+                            </div>  
+                             Submit success message
+-->
                             <!-- This is what your users will see when the form-->
                             <!-- has successfully submitted-->
                             <div class="d-none" id="submitSuccessMessage">

@@ -45,7 +45,7 @@
                   <img src="" alt="">
                   <span class="d-none d-lg-block">BlooDonation-Admin</span>
                 </a>
-              </div><!-- End Logo -->
+              </div>
 
               <div class="card mb-3">
 
@@ -57,28 +57,26 @@
                   </div>
 
                   <form class="row g-3 needs-validation" novalidate method="POST">
+                    @csrf
                     <div class="col-12">
-                      <label for="yourName" class="form-label"> Name</label>
+                      <label for="yourName" class="form-label"  > Service Name</label>
                       <input type="text" name="name" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter the name!</div>
+                      <div class="invalid-feedback">Please, enter the service name!</div>
                     </div>
 
                     <div class="col-12">
+                    
                       <label for="yourEmail" class="form-label"> Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
-
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
+                      <label for="yourName" class="form-label"> Phone Number</label>
+                      <input type="text" name="phone" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter the service phone number!</div>
                     </div>
-
                     <div class="col-12">
+                    
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter the password!</div>
@@ -92,6 +90,7 @@
                       </div>
                     </div>
                     <div class="col-12">
+                    
                       <button class="btn btn-primary w-100" id="submit-button" type="submit">Create Account</button>
                     </div>
                   </form>

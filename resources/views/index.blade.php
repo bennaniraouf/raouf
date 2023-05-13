@@ -29,6 +29,12 @@
   <!-- Template Main CSS File -->
   <link href="{{URL::to('/')}}/import/assets/css/main.css" rel="stylesheet">
 
+<!-- Bootstrap carousel CSS -->
+<link href="{{URL::to('/')}}/import/assets/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for carousel template -->
+<link href="{{URL::to('/')}}/import/assets/css/carousel.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -48,32 +54,98 @@
           <li><a href="/home">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/events">Events </a></li>
-          <li class="dropdown"><a href="#"><span>more</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="/contact">Contact</a></li>
+          <li class="dropdown"><a href="#"><span>connect</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="admin_login">ADMIN</a></li>
+              
+              
+              <li><a href="login">GIVER</a></li>
+              <li><a href="reciever_login">RECIEVER</a></li>
+              
             </ul>
           </li>
-          <li><a href="/contact">Contact</a></li>
+         
         </ul>
       </nav><!-- .navbar -->
-      <a class="btn-book-a-table" href="/login">login</a>
+      
+      
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
     </div>
   </header><!-- End Header -->
+
+  <!-- start caroussel section -->
+  
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+  <div class="container">
+   
+  <main role="main">
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+  @if($pubs)
+        @foreach($pubs as $row)
+        @if($loop->first)
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    @else
+    <li data-target="#myCarousel" data-slide-to="{{$row->id}}"></li>
+    @endif
+    @endforeach
+    @endif    
+  </ol>
+  <div class="carousel-inner">
+  @if($pubs)
+        @foreach($pubs as $row)
+    <div class="carousel-item @if($loop->first) active @endif">
+      <img class="{{$row->id}}-slide" src="{{URL::to('/')}}/import/assets/img/pub.jpg" alt="{{$row->id}} slide">
+      <div class="container">
+        <div class="carousel-caption text-left">
+          <h1 class="text-danger">Join the Cause</h1>
+          <h1 class="text-dark">{{$row->name}} is in dire need of {{$row->msg}} bags</h1>
+          <h1 class="text-dark">{{$row->blood}} blood.</h1><br>
+          
+          <div class="p-1 bg-danger w-50"></div>
+          <h3 class="text-danger">contact us</h3>
+          <p><i class="icon bi bi-envelope flex-shrink-0"></i>  {{$row->email}}</p>
+          <p><i class="icon bi bi-telephone flex-shrink-0"></i>  {{$row->phone}}</p>
+              
+                
+                
+   
+            
+
+          
+        </div>
+      </div>
+    </div>
+    @endforeach
+    @endif       
+  </div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+</div>
+</Section>
+
+  <!-- End caroussel section -->
+
+
+
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center section-bg">
@@ -105,11 +177,13 @@
           <h2>About Us</h2>
           <p>Learn More <span>About Us</span></p>
         </div>
-
+<br>
         <div class="row gy-4">
           <div class="col-lg-7 position-relative about-img" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
+              
               <div>
+                
                 <video  autoplay loop controls >
                   <source src="{{ asset('import/assets/video/nurse.mp4') }}" type="video/mp4">
                   Your browser does not support the video tag.
@@ -118,7 +192,7 @@
                   
           
               <h4>Book a appointment</h4>
-              <p>+1 5589 55488 55</p>
+              <p>+213 554889555</p>
             </div>
           </div>
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
@@ -154,8 +228,10 @@
             <div class="why-box">
               <h3>Why donate blood?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                
+              Donating blood is important because it can help save lives, support patients with medical conditions,
+               replenish the blood supply, provide a free health check-up, and give you a sense of satisfaction 
+               and purpose knowing your are making a difference in people lifes
               </p>
               <div class="text-center">
                 <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
@@ -169,24 +245,24 @@
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <h4>statistics</h4>
+                  <p>Blood donation fell by 13% in 2020 due to Covid-19 health crisis..</p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-gem"></i>
-                  <h4>Ullamco laboris ladore pan</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>health benefits</h4>
+                  <p>Donating blood can reduce the risk of heart diseases...</p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-inboxes"></i>
-                  <h4>Labore consequatur incidid dolore</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <h4>Islamic Donation</h4>
+                  <p>“Whoever saves a life is as though he had saved all mankind.”</p>
                 </div>
               </div><!-- End Icon Box -->
 
@@ -501,6 +577,18 @@
 
   <!-- Template Main JS File -->
   <script src="{{URL::to('/')}}/import/assets/js/main.js"></script>
+  
+
+
+<!-- Bootstrap carousel JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="{{URL::to('/')}}/import/assets/js/popper.min.js"></script>
+<script src="{{URL::to('/')}}/import/assets/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="{{URL::to('/')}}/import/assets/js/holder.min.js"></script>
 
 </body>
 

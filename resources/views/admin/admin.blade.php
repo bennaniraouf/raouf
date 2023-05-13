@@ -37,8 +37,9 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">dr.ahmed</span>
+        <img src="import/assets/img/logos/logo1.png" alt="">
+        <span class="d-none d-lg-block">Dr.{{Session::get('admin')['last_name']}}</span>
+      
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -204,13 +205,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{{URL::to('/')}}/import2/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Dr.Ahmed</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">Admin:{{Session::get('admin')['last_name']}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>dr.Ahmed</h6>
-              <span>Doctor</span>
+              <h6>dr.{{Session::get('admin')['last_name']}}</h6>
+              <span>Chief Doctor</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -247,9 +248,9 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="/LogOut">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>LogOut</span>
               </a>
             </li>
 
@@ -282,9 +283,15 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/users-profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/tables-data">
+        <i class="bi bi-person-hearts"></i>
+          <span>Donors</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -317,9 +324,9 @@
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
+        <a class="nav-link collapsed" href="recieversrequests">
           <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
+          <span>recievers requests</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
 
@@ -452,47 +459,50 @@
                       <tr>
                         <th scope="col">#id</th>
                         <th scope="col">Donor</th>
-                        <th scope="col">blodtype</th>
+                        <th scope="col">bloodtype</th>
                         <th scope="col">quantity</th>
                         <th scope="col">Status</th>
+                        <th scope="col">medical card</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($volonteers as $var)
                       <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>khemira seif</td>
-                        <td><a href="#" class="text-primary">B+</a></td>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>{{$var->familyname}} {{$var->lastname}}</td>
+                        <td><a href="#" class="text-primary">{{$var->bloodtype}}</a></td>
                         <td>1l</td>
                         <td><span class="badge bg-success">Approved</span></td>
+                        <td>  <a href="fiche"><i class="bi bi-clipboard-data"></i></a></td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Raouf Bennani</td>
-                        <td><a href="#" class="text-primary">A+</a></td>
-                        <td>0.300l</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Khemira Seddem</td>
-                        <td><a href="#" class="text-primary">o+</a></td>
-                        <td>0.400l</td>
+                      @endforeach
+                     <!-- <tr>
+                        <th scope="row"><a href="#">2</a></th>
+                        <td>bennani abderraouf</td>
+                        <td><a href="#" class="text-primary">O+</a></td>
+                        <td>1l</td>
                         <td><span class="badge bg-success">Approved</span></td>
+                        <td>  <a href="fiche"><i class="bi bi-clipboard-data"></i></a></td>
                       </tr>
+                      
                       <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Khemira Mouna</td>
-                        <td><a href="#" class="text-primar">B+</a></td>
-                        <td>0.455l</td>
-                        <td><span class="badge bg-success">approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>khemira nora</td>
+                        <th scope="row"><a href="#">3</a></th>
+                        <td>ketfi samir</td>
                         <td><a href="#" class="text-primary">B+</a></td>
-                        <td>0.700l</td>
+                        <td>0.5l</td>
                         <td><span class="badge bg-success">Approved</span></td>
+                        <td>  <a href="fiche"><i class="bi bi-clipboard-data"></i></a></td>
                       </tr>
+                      
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>khemira karim</td>
+                        <td><a href="#" class="text-primary">AB+</a></td>
+                        <td>1l</td>
+                        <td><span class="badge bg-success">Approved</span></td>
+                        <td>  <a href="fiche"><i class="bi bi-clipboard-data"></i></a></td>
+                      </tr>
+-->
                     </tbody>
                   </table>
 
@@ -523,9 +533,104 @@
 
             <div class="card-body pb-0">
               <h5 class="card-title">Blood Bank <span>| This Month</span></h5>
+              <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+               
+                <p class="mb-1" style="font-size: .77rem;">O+</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar bg-danger " role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">A-</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar bg-danger " role="progressbar" style="width: 72%" aria-valuenow="72"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">AB+</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar bg-danger " role="progressbar" style="width: 89%" aria-valuenow="89"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">B+</p>
+                <div class="progress rounded" style="height: 5px;">
+                  <div class="progress-bar bg-danger " role="progressbar" style="width: 55%" aria-valuenow="55"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="mt-4 mb-1" style="font-size: .77rem;">A+</p>
+                <div class="progress rounded mb-2" style="height: 5px;">
+                  <div class="progress-bar bg-danger " role="progressbar" style="width: 66%" aria-valuenow="66"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+  </div>
 
-              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
 
+  <Br>
+  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#bankModal">update bank</button>
+  <a href="appeal"><button  class="btn btn-primary">launch an appeal </button></a>
+
+  <!-- Feedback Modal-->
+<div class="modal fade" id="bankModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+                        <button class="btn-close btn-close-black" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body border-0 p-4">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="bloodbank" method="post">
+                          @csrf
+                          <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">o+</span>
+  <input type="text" name="o+" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">o-</span>
+  <input type="text" name="o-" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">ab+</span>
+  <input type="text" name="ab+" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">ab-</span>
+  <input type="text" name="ab-" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">a+</span>
+  <input type="text" name="a+" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">a-</span>
+  <input type="text" name="a-" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">b+</span>
+  <input type="text" name="b+" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>                            
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">b-</span>
+  <input type="text" name="b-" class="form-control" placeholder="quantity available" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg" id="submitButton" type="submit">update</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
               
 
             </div>

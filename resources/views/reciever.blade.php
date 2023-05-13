@@ -70,27 +70,13 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/logout">Log out</a></li>
         </ul>
 
-      </nav><!-- .navbar -->
-      <div class="dropdown">
-  <img  
-  class="rounded-circle mt-3 dropdown-toggle" 
-  role="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" 
-  aria-expanded="false" 
-  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-  style="border: 1px solid rgb(254,46,1);height :3rem; cursor : pointer;"/>
-    
+        
+        
 
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-    <li><a class="dropdown-item active" href="#">profile</a></li>
-    <li><a class="dropdown-item" href="#">settings</a></li>
-    <li><a class="dropdown-item" href="#">history</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">logout</a></li>
-    
-</div>
+      </nav>
 
 </div>
 </header>  
@@ -110,8 +96,8 @@
             <p class="text-muted mb-1">blood bank</p>
             <p class="text-muted mb-4">W14, AIN ARNAT, SETIF</p>
             <div class="d-flex justify-content-center mb-2">
-              <a role="button" class="btn btn-primary" href="appeal">post an appeal</a>
-              <a role="button" class="btn btn-outline-primary ms-1" href="#">blood request </a>
+              <a role="button" class="btn btn-primary" href="request">send a request</a>
+              <a role="button" class="btn btn-outline-primary ms-1" href="settings">edit profile </a>
             </div>
           </div>
         </div>
@@ -147,28 +133,28 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Full Name</p>
+                <p class="mb-0">Name</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">AIN ARNAT HOSPITAL</p>
+                <p class="text-muted mb-0">{{$data->firstname}}</p>
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Email</p>
+                <p class="mb-0">certification</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">example@example.com</p>
+                <p class="text-muted mb-0">{{$data->lastname}}</p>
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Phone</p>
+                <p class="mb-0">company name</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(097) 234-5678</p>
+                <p class="text-muted mb-0">{{$data->companyname}}</p>
               </div>
             </div>
             <hr>
@@ -177,91 +163,32 @@
                 <p class="mb-0">Mobile</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(098) 765-4321</p>
+                <p class="text-muted mb-0">{{$data->phone}}</p>
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Address</p>
+                <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">W 14,AIN ARNAT,SETIF</p>
+                <p class="text-muted mb-0">{{$data->email}}</p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
+        </div>  <div class="col-lg-14">
             <div class="card mb-4 mb-md-0">
               <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1"><u><a class="text-primary" data-bs-toggle="modal" href="#exampleModalToggle" >details</a></u></span> local blood bank
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">O+</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 80%" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">A-</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 72%" aria-valuenow="72"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">AB+</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 89%" aria-valuenow="89"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">B+</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 55%" aria-valuenow="55"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">A+</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 66%" aria-valuenow="66"
-                    aria-valuemin="0" aria-valuemax="100"></div>
+              <a href="appeal">
+                <p class="mb-4"><span class="text-primary font-italic me-1"><u>click below to see your history</u></span>
+                </p></a>
+          <div>request for the blood components are treated accordinglly to the blood bank availabality and priorities <br>request 
+        can be recieved from other hospital for thier styock requirment</div>
+        <img src="{{URL::to('/')}}/import/assets/img/bankblood.jpg" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-4 mb-md-0">
-              <div class="card-body">
-                <p class="mb-4"><span class="text-primary font-italic me-1"><u><a class="text-primary" data-bs-toggle="modal" href="#1exampleModalToggle">  details</a></u></span> blood need
-                </p>
-                <p class="mb-1" style="font-size: .77rem;">B-</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 80%" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">O-</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 72%" aria-valuenow="72"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">AB-</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 89%" aria-valuenow="89"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">B+</p>
-                <div class="progress rounded" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 55%" aria-valuenow="55"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-4 mb-1" style="font-size: .77rem;">B-</p>
-                <div class="progress rounded mb-2" style="height: 5px;">
-                  <div class="progress-bar bg-danger " role="progressbar" style="width: 66%" aria-valuenow="66"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 

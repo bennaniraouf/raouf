@@ -19,6 +19,8 @@
   --font-secondary: "Inter", sans-serif;
 }
 
+
+
 /* Colors */
 :root {
   --color-default: #212529;
@@ -3288,3 +3290,5 @@ input[type="radio"]:checked+label {
   max-width: 100%;
   width: 550 px;
 }
+
+

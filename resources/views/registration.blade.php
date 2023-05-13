@@ -13,87 +13,106 @@
             </div>
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
-                <h3 class="mb-5 text-uppercase">Blood Donor Registration</h3>
+                <form action="registration" method="POST">
+                @csrf
+                  <h3 class="mb-5 text-capitalize">blood donation registration</h3>
 
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1m" class="form-control form-control-lg" placeholder="enter full name" />
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="form3Example1m" name="familyname" class="form-control form-control-lg" placeholder="family name" />
+                      </div>
                     </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="form3Example1m" name="lastname" class="form-control form-control-lg" placeholder="last name" />
+                      </div>
+                    </div><div class="form-outline mb-4">
+                    <input type="text" id="form3Example8" name="adress" class="form-control form-control-lg" placeholder="Adress" />
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="number" id="form3Example1n" class="form-control form-control-lg" placeholder="enter your age"/>
+                      <input type="number" id="form3Example1n" name="age" class="form-control form-control-lg" placeholder="your age"/>
                     </div>
+                    
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" name="phonenumber" class="form-control form-control-lg" placeholder="phone number"/>
+                    </div>
+                    
                   </div>
                 </div>
 
+                  
 
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                    <h6 class="mb-0 me-4">Gender: </h6>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                        value="female" />
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                        value="male" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+
+                </div>
+
+                
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" name="email" class="form-control form-control-lg" placeholder="Email"/>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password"/>
+                </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example8" class="form-control form-control-lg" placeholder="Adress" />
+                  <input type="password" id="password" class="form-control form-control-lg" placeholder="Confirmation"/>
                 </div>
-
-                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-
-                  <h6 class="mb-0 me-4">Gender: </h6>
-
-                  <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                      value="option1" />
-                    <label class="form-check-label" for="femaleGender">Female</label>
-                  </div>
-
-                  <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                      value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
-                  </div>
-
-                </div>
-
                 <div class="row">
                   <div class="col-md-6 mb-4">
-                    <label for="">blood type</label>
-                    <select class="select">
-                      <option value="1">blood</option>
-                      <option value="2">A</option>
-                      <option value="3">B</option>
-                      <option value="4">O</option>
-                      <option value="4">AB</option>
+                    <label for="">Blood Type</label>
+                    <select name="bloodtype" class="select">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="O">O</option>
+                      <option value="AB">AB</option>
                     </select>
 
                   </div>
                   <div class="col-md-6 mb-4">
-                    <label for="">Rh</label>
-                    <select class="select">
-                      <option value="1">+</option>
-                      <option value="2">-</option>
+                    <label  for="">Rh</label>
+                    <select name="Rh" class="select">
+                      <option value="+">+</option>
+                      <option value="-">-</option>
                     </select>
-
+                    
+                </div>
+                <div class="col-md-6 mb-4">
+                    <label for="">Chronic Disease</label>
+                    <select name="disease" class="select">
+                      <option value="yes">yes</option>
+                      <option value="no">no</option>
+                    </select>
                   </div>
-                </div>
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example97" class="form-control form-control-lg" placeholder="Email"/>
-                </div>
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example9" class="form-control form-control-lg" placeholder="Password"/>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example90" class="form-control form-control-lg" placeholder="Confirmation"/>
-                </div>
-
-             
 
                 <div class="d-flex justify-content-end pt-3">
                   <button type="button" class="btn btn-light btn-lg">Reset all</button>
-                  <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                  <button type="submit" class="btn btn-warning btn-lg ms-2">Submit form</button>
                 </div>
-
+                <a href="login" class="small text-muted">already registred</a>
               </div>
             </div>
           </div>
+          
+                </form>
+                
         </div>
       </div>
     </div>
@@ -111,5 +130,25 @@
         }
         .container {
             max-height: 40rem;
+        }
+        .btn-warning{
+          --bs-btn-color: #f8f9fa;
+          --bs-btn-bg: #b02a37; 
+          --bs-btn-bg-border:none;
+          --bs-btn-hover-color: #f8f9fa;
+          --bs-btn-hover-bg: #0074c7;
+          --bs-btn-focus-shadow-rgb: 217,164,6;
+          --bs-btn-active-color: #f8f9fa;
+          --bs-btn-active-bg: #ffcd39;
+          --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+          --bs-btn-disabled-color: #f8f9fa;
+          --bs-btn-disabled-bg: #ffc107;
+        }
+        .form-check-input:checked {
+          background-color: #c10000;
+          border-color: #c10000;
+        }
+        select {
+          width: 3rem;
         }
 </style>

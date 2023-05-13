@@ -2,6 +2,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
+      
+       
+
+
+
 <section class="vh-100" style="background-color: white;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -15,11 +20,19 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="" method="POST">
+                <form action="{{route('login_reciever')}}" method="POST">
+                  
+@if(\Session::has('success'))
+<div class="alert alert-success">{{\Session::get('success')}}</div>
+@endif
+
+@if(\Session::has('fail'))
+<div class="alert alert-danger">{{\Session::get('fail')}}</div>
+@endif
                     @csrf
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                    <span class="h1 fw-bold mb-0">BloodDonation</span>
+                    <span class="h1 fw-bold mb-0">BloodDonation reciever</span>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
@@ -40,12 +53,12 @@
                   </div>
 
                   <a class="small text-muted" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="registration"
+                  
+                <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/registration_recievers"
                       style="color: #393f81;">Register here</a></p>
-                  <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>
                 </form>
-
+                <a href="/" >return to home page</a>
               </div>
             </div>
           </div>
